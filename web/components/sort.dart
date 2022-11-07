@@ -1,6 +1,3 @@
-import '../main.dart';
-import 'updateTodo.dart';
-
 dynamic sortList(String value, List list) {
   print('sorting engaged by $value');
 
@@ -17,6 +14,14 @@ dynamic sortList(String value, List list) {
   } else if (value.compareTo("priority") == 0) {
     print('sorting by priority');
     return list.sort((a, b) => b!.pt - a!.pt);
+  } else if (value.compareTo("date") == 0) {
+    print('sorting by date');
+    return list.sort((a, b) {
+      DateTime second = DateTime.parse(b!.dueDate);
+      DateTime first = DateTime.parse(a!.dueDate);
+      print(second.compareTo(first));
+      return first.compareTo(second);
+    });
   } else {
     print('parameter unknown');
     print(value);
