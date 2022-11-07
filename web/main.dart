@@ -1,6 +1,7 @@
 import 'dart:html';
 import 'class/Todo.dart';
 import 'components/addTodo.dart';
+import 'components/removeTodo.dart';
 import 'components/sort.dart';
 import 'components/storage.dart';
 import 'components/updateTodo.dart';
@@ -16,6 +17,7 @@ late ButtonElement addButton;
 late TableElement table;
 late FormElement form;
 late DivElement emptyList;
+late ButtonElement clear;
 
 List<Todo?> todoList = [];
 List<Todo?> comList = [];
@@ -30,10 +32,11 @@ Future<void> main() async {
   uiCompleteList = querySelector('#todo-complete') as DivElement;
   addButton = querySelector('#addBtn') as ButtonElement;
   emptyList = querySelector('#empty-list') as DivElement;
-
+  clear = querySelector('#clear') as ButtonElement;
   await getStorage();
   await getCompleteStorage();
   addButton.onClick.listen(addTodo);
+  clear.onClick.listen(removeAllTodos);
   sort.onChange.listen((event) async {
     sortList(sort.value.toString(), todoList);
     updateTodos();

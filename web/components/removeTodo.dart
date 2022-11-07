@@ -111,4 +111,8 @@ void updateCompleteList() {
 void removeAllTodos(MouseEvent event) {
   uiList.children.clear();
   todoList.clear();
+  comList.clear();
+  window.localStorage.clear();
+  updateTodos();
+  updateCompleteList();
 }
