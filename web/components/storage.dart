@@ -12,25 +12,25 @@ late int lastIndex;
 late int lastIndexDone;
 
 getStorage() {
-  print('\n Getting Local storage...');
+  //('\n Getting Local storage...');
 
   arrTodos = window.localStorage['todos'];
-  print(arrTodos);
+  //(arrTodos);
   if (arrTodos == "" || (arrTodos == null)) {
     window.localStorage['todos'] = todoList.toString();
     arrTodos = window.localStorage['todos'];
   }
-  print("getStorage called");
-  print(arrTodos);
+  //("getStorage called");
+  //(arrTodos);
 
   final todos = jsonDecode(arrTodos);
 
-  print(todos);
+  //(todos);
 
   todos.forEach((element) {
     Todo singleTodo = Todo.fromJson(element);
     todoList.add(singleTodo);
-    print(singleTodo.id);
+    //(singleTodo.id);
   });
 
   if (todoList.isEmpty) {
@@ -38,34 +38,34 @@ getStorage() {
   } else {
     lastIndex = todoList.elementAt(todoList.length - 1)!.id;
   }
-  print(lastIndex);
+  //(lastIndex);
 
   updateTodos();
-  print('Finished Getting Local storage...');
+  //('Finished Getting Local storage...');
   return todoList;
 }
 
 // get completed list
 getCompleteStorage() {
-  print('\n Getting Local storage...');
+  //('\n Getting Local storage...');
 
   arrdone = window.localStorage['completed'];
-  print(arrTodos);
+  //(arrTodos);
   if (arrdone == "" || (arrdone == null)) {
     window.localStorage['completed'] = comList.toString();
     arrdone = window.localStorage['completed'];
   }
-  print("getCompletedStorage called");
-  print(arrdone);
+  //("getCompletedStorage called");
+  //(arrdone);
 
   final completed = jsonDecode(arrdone);
 
-  print(completed);
+  //(completed);
 
   completed.forEach((element) {
     Todo singleTodo = Todo.fromJson(element);
     comList.add(singleTodo);
-    print(singleTodo.id);
+    //(singleTodo.id);
   });
 
   if (comList.isEmpty) {
@@ -73,30 +73,30 @@ getCompleteStorage() {
   } else {
     lastIndexDone = comList.elementAt(comList.length - 1)!.id;
   }
-  print(lastIndexDone);
+  //(lastIndexDone);
 
   updateCompleteList();
-  print('Finished Getting Local storage...');
+  //('Finished Getting Local storage...');
   return comList;
 }
 
 addStorage(List todolist) {
-  print('\n adding to local storage');
+  //('\n adding to local storage');
   window.localStorage["todos"] = jsonEncode(todolist);
   final done = window.localStorage['todos'];
 
-  print(done);
+  //(done);
 
-  print('\n done adding');
+  //('\n done adding');
 }
 
 // add completed storage
 addCompleteStorage(List doneList) {
-  print('\n adding completed to local storage');
+  //('\n adding completed to local storage');
   window.localStorage["completed"] = jsonEncode(doneList);
   final done = window.localStorage['completed'];
 
-  print(done);
+  //(done);
 
-  print('\n done adding');
+  //('\n done adding');
 }

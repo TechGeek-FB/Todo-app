@@ -1,8 +1,8 @@
 dynamic sortList(String value, List list) {
-  print('sorting engaged by $value');
+  //('sorting engaged by $value');
 
   if (value.compareTo("name") == 0) {
-    print('sorting by name');
+    //('sorting by name');
 
     return list.sort((a, b) {
       String x = a!.text!.toLowerCase();
@@ -12,18 +12,18 @@ dynamic sortList(String value, List list) {
       return 0;
     });
   } else if (value.compareTo("priority") == 0) {
-    print('sorting by priority');
+    //('sorting by priority');
     return list.sort((a, b) => b!.pt - a!.pt);
   } else if (value.compareTo("date") == 0) {
-    print('sorting by date');
+    //('sorting by date');
     return list.sort((a, b) {
       DateTime second = DateTime.parse(b!.dueDate);
       DateTime first = DateTime.parse(a!.dueDate);
-      print(second.compareTo(first));
+      //(second.compareTo(first));
       return first.compareTo(second);
     });
   } else {
-    print('parameter unknown');
-    print(value);
+    //('parameter unknown');
+    //(value);
   }
 }

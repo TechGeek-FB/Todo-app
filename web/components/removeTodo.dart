@@ -7,12 +7,12 @@ import 'updateTodo.dart';
 
 void test(int id, event) async {
   // event.preventDefault();
-  print('test function called $id with eveent $event');
+  //('test function called $id with eveent $event');
   completeTodo;
 }
 
 void completeTodo(int id) {
-  print('complete Task called');
+  //('complete Task called');
   Todo? todo = todoList.elementAt(id);
 
   // event.stopPropagation();
@@ -21,12 +21,12 @@ void completeTodo(int id) {
   // Element button = (event.currentTarget as Element);
 
   // int key = int.parse(button.id.split('-')[0]);
-  print("The id is ${todo!.id}");
+  //("The id is ${todo!.id}");
   // Iterable<Todo?> complete = todoList.where((todo) => todo?.id == key);
   comList.add(todo);
-  print("this task was just completed ${todo.text}");
+  //("this task was just completed ${todo.text}");
   // comList.add(complete.first);
-  print("Length of complete list is ${comList.length}");
+  //("Length of complete list is ${comList.length}");
 
   // todoList.removeWhere((todo) => todo?.id == key);
   // div!.remove();
